@@ -1,12 +1,57 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
+import HowItWorks from "@/components/HowItWorks";
+import TechStack from "@/components/TechStack";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
+import { useEffect } from "react";
 
 const Index = () => {
+  // Add 3D effect for buttons
+  useEffect(() => {
+    const addButtonEffects = () => {
+      const buttons = document.querySelectorAll('.btn-3d');
+      
+      buttons.forEach(button => {
+        button.addEventListener('mousedown', () => {
+          button.classList.add('active');
+        });
+        
+        button.addEventListener('mouseup', () => {
+          button.classList.remove('active');
+        });
+        
+        button.addEventListener('mouseleave', () => {
+          button.classList.remove('active');
+        });
+      });
+    };
+    
+    addButtonEffects();
+    
+    return () => {
+      const buttons = document.querySelectorAll('.btn-3d');
+      buttons.forEach(button => {
+        button.removeEventListener('mousedown', () => {});
+        button.removeEventListener('mouseup', () => {});
+        button.removeEventListener('mouseleave', () => {});
+      });
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <Hero />
+        <Features />
+        <HowItWorks />
+        <TechStack />
+        <CTA />
+      </main>
+      <Footer />
     </div>
   );
 };

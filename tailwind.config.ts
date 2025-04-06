@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,30 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				llamayellow: {
+					50: '#FFFDF0',
+					100: '#FFFBE0',
+					200: '#FFF7C2',
+					300: '#FFF3A3',
+					400: '#FFEE85',
+					500: '#FFE966',
+					600: '#FFC107',  // Primary yellow
+					700: '#E6AC00',
+					800: '#CC9600',
+					900: '#B38000',
+				},
+				llamapurple: {
+					50: '#F6F4FF',
+					100: '#EDEBFF',
+					200: '#D6D0FF',
+					300: '#BFB5FF',
+					400: '#A799FF',
+					500: '#907EFF',
+					600: '#7966E3',
+					700: '#6250C7',
+					800: '#4C3AAB',
+					900: '#35248F',
 				}
 			},
 			borderRadius: {
@@ -68,27 +93,41 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				display: ['Poppins', 'sans-serif'],
+			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+				'button-press': {
+					'0%': { transform: 'scale(1) translateY(0)' },
+					'50%': { transform: 'scale(0.97) translateY(4px)' },
+					'100%': { transform: 'scale(1) translateY(0)' },
+				},
+				'float': {
+					'0%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+					'100%': { transform: 'translateY(0)' },
+				},
+				'glow': {
+					'0%': { boxShadow: '0 0 5px rgba(255, 193, 7, 0.5)' },
+					'50%': { boxShadow: '0 0 20px rgba(255, 193, 7, 0.8)' },
+					'100%': { boxShadow: '0 0 5px rgba(255, 193, 7, 0.5)' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'button-press': 'button-press 0.3s ease-in-out',
+				'float': 'float 6s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite',
 			}
 		}
 	},
